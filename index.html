@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadrilateral Area Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quadrilateral Area Calculator</h1>
+
+<form onsubmit="calculateArea(); return false">
+    <label for="sideA">Side A:</label>
+    <input type="number" step="0.01" id="sideA" required>
+
+    <label for="sideB">Side B:</label>
+    <input type="number" step="0.01" id="sideB" required>
+
+    <label for="sideC">Side C:</label>
+    <input type="number" step="0.01" id="sideC" required>
+
+    <label for="sideD">Side D:</label>
+    <input type="number" step="0.01" id="sideD" required>
+
+    <button type="submit">Calculate Area</button>
+</form>
+
+
+<div>
+    <p id="result">0</p>
+    <p id="resultDecimal">0</p>
+</div>
+
+<script>
+    function calculateArea() {
+        var sideA = parseFloat(document.getElementById('sideA').value);
+        var sideB = parseFloat(document.getElementById('sideB').value);
+        var sideC = parseFloat(document.getElementById('sideC').value);
+        var sideD = parseFloat(document.getElementById('sideD').value);
+
+        var s = (sideA + sideB + sideC + sideD) / 2;
+        var area = Math.sqrt((s - sideA) * (s - sideB) * (s - sideC) * (s - sideD));
+        var areaDecimal = (area/435.6);
+
+        document.getElementById('result').innerHTML = "The area of the quadrilateral is: " + area.toFixed(2) + " square foot";
+        document.getElementById('resultDecimal').innerHTML = "The area of the quadrilateral is: " + areaDecimal.toFixed(2) + " decimal";
+    }
+</script>
+
+</body>
+</html>
